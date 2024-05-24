@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0; // first div in grid
     let appleIndex = 0; // firtst div in grid
     let currentSnake = [2, 1, 0]; // 2 is the head, 0 is the tail, 1s are the body
+    let currentHead = currentSnake[0];
     let direction = 1; // down
     let score = 0;
     let speed = 0.9;
@@ -16,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // start and restart game
     function startGame() {
-        currentSnake.forEach(index => squares[index].classList.remove(".snake"));
+        currentSnake.forEach(index => squares[index].classList.remove("snake"));
+        squares[currentHead].classList.remove("head");
         squares[appleIndex].classList.remove("apple");
         clearInterval(interval);
         score = 0;
@@ -45,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const tail = currentSnake.pop();
         squares[tail].classList.remove("snake");
         currentSnake.unshift(currentSnake[0] + direction);
+        squares[currentHead].classList.remove("head");
+        currentHead = currentSnake[0];
 
         // deals with snake getting apple
         if (squares[currentSnake[0]].classList.contains("apple")) {
@@ -60,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         squares[currentSnake[0]].classList.add("snake");
+        squares[currentSnake[0]].classList.add("head");
     }
 
     // generate new apple once apple is eaten

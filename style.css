@@ -1,4 +1,32 @@
+body {
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    width: 200px;
+}
+
+.start {
+    background-color: blue;
+    border-color: blue;
+    color: aliceblue;
+    width: 125px;
+    height: 25px;
+    font-weight: bold;
+}
+
+.score {
+    margin: 5px;
+    font-weight: bold;
+}
+
+span {
+    color: gold;
+}
+
 .grid {
+    background-color: gold;
+    border-color: black;
+    border-radius: 5%;
     width: 200px;
     height: 200px;
     display: flex;
@@ -13,8 +41,18 @@
 
 .snake {
     background-color: blue;
+    border-radius: 45%;
+}
+
+.head {
+    border-radius: 20%;
 }
 
 .apple {
     background-color: red;
+    border-radius: 50%;
+}
+
+#attr {
+    color: gold;
 }
