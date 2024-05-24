@@ -27,8 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreDisplay.innerText = score;
         intervalTime = 1000;
         currentSnake = [2, 1, 0];
-        currentIndex = 1;
+        currentIndex = 0;
         interval = setInterval(moveOutcomes, intervalTime);
+        currentSnake.forEach(index => squares[index].classList.add("snake"));
     }
 
     // dealing with all move outcomes
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function randomApple() {
         do {
             appleIndex = Math.floor(Math.random() * squares.length);
-        } while (squares[appleIndex].classList.contains("snake"))
+        } while (squares[appleIndex].classList.contains("snake"));
         squares[appleIndex].classList.add("apple");
     }
 
