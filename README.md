@@ -1,6 +1,8 @@
-# Connect Four Game
+# Snake Gamee
 
-[Insert description]
+This Snake Game is inspired by the classic Nokia 3310 Snake. 
+
+Press the Start/Restart button to begin a new game. With the left/right/up/down keys you control the snake's direction. The goal is to collect the randomly appearing red balls representing apples being eaten by the snake. Eating an apple increases the score, the length of the snake and the speed of the game. Colliding with a wall or the body of the snake ends the game.
 
 ## Installation
 
@@ -9,7 +11,7 @@ The game was written using JavaScript, HTML and CSS.
 
 ## Usage
 
-Play the game directly on the project's GitHub Page: [insert link]
+Play the game directly on the project's GitHub Page: https://s-mehnert.github.io/snake_game/
 
 ## Contributing
 
