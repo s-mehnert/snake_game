@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[appleIndex].classList.remove("apple");
         clearInterval(interval);
         score = 0;
-        // random apple
+        randomApple();
         direction = 1;
         scoreDisplay.innerText = score;
         intervalTime = 1000;
@@ -31,7 +31,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // dealing with all move outcomes
     function moveOutcomes() {
+        // deals with snake hitting borders or itself
+        if (
+            (currentSnake[0] + width >= (width*width) && direction === width) || // if snake hits bottom
+            (currentSnake[0] % width === width-1 && direction === 1) || // if snake hits right wall
+            (currentSnake[0] % width === 0 && direction === -1) || // if snake hits left wall
+            (currentSnake[0] - width < 0 && direction === -width) || // if snake hits the top
+            (squares[currentSnake[0] + direction].classList.contains("snake")) // if snake hits itself
+        ) {
+            return clearInterval(interval);
+        }
 
+        const tail = currentSnake.pop();
+        squares[tail].classList.remove("snake");
+        currentSnake.unshift(currentSnake[0] + direction);
+
+        // deals with snake getting apple
+        if (squares[currentSnake[0]].classList.contains("apple")) {
+            squares[currentSnake[0]].classList.remove("apple");
+            squares[tail].classList.add("snake");
+            currentSnake.push(tail);
+            randomApple();
+            score ++;
+            scoreDisplay.textContent = score;
+            clearInterval(interval);
+            intervalTime = intervalTime * speed;
+            interval = setInterval(moveOutcomes, intervalTime);
+        }
+
+        squares[currentSnake[0]].classList.add("snake");
+    }
+
+    // generate new apple once apple is eaten
+    function randomApple() {
+        do {
+            appleIndex = Math.floor(Math.random() * squares.length);
+        } while (squares[appleIndex].classList.contains("snake"))
+        squares[appleIndex].classList.add("apple");
     }
 
     // assign function to keycodes
@@ -51,4 +87,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.addEventListener("keyup", control);
+    startBtn.addEventListener("click", startGame);
 });
