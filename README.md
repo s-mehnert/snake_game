@@ -1,4 +1,4 @@
-# Snake Gamee
+# Snake Game
 
 This Snake Game is inspired by the classic Nokia 3310 Snake. 
 
