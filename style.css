@@ -7,7 +7,7 @@ body {
     background-color: black;
     color: aliceblue;
     text-align: center;
-    width: 400px;
+    width: 450px;
 }
 
 .start {
@@ -17,6 +17,7 @@ body {
     width: 125px;
     height: 25px;
     font-weight: bold;
+    margin-right: 2em
 }
 
 .score {
@@ -24,24 +25,30 @@ body {
     font-weight: bold;
 }
 
-span {
+span, h1 {
     color: gold;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
 }
 
 .grid {
     background-color: gold;
     border-color: black;
     border-radius: 5%;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     display: flex;
     flex-wrap: wrap;
     border-style: solid;
 }
 
 .grid div {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
 }
 
 .snake {
